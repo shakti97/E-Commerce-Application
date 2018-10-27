@@ -9,14 +9,24 @@ import { AppComponent } from './app.component';
 import { SellerModule } from './seller/seller.module';
 import { Router } from '../../node_modules/@angular/router';
 import { AppRoutingModule } from 'Routes/appRouting.module';
+import { AdminModule } from './admin/admin.module';
+import { HeaderComponent } from './user/website/header/header.component';
+import { FooterComponent } from './user/website/footer/footer.component';
+import { CarouselComponent } from './user/website/carousel/carousel.component';
+import { ProductsComponent } from './user/website/products/products.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    CarouselComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AdminModule,
     HttpModule,
     SellerModule,
     AppRoutingModule

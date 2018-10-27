@@ -1,0 +1,104 @@
+<div class="row">
+    
+  <div class="col-sm-2 w-100">
+    
+    <profile [(email)]="email"></profile>
+  </div>
+  
+  <div class="col-sm-10">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item  mx-2">
+              <a class="nav-link">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" (click)="viewSellers()">Sellers</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item">Action</a>
+                <a class="dropdown-item">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">link</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+      <div class="row pl-4">
+        <admin-pallet></admin-pallet>
+        <admin-pallet></admin-pallet>
+        <admin-pallet></admin-pallet>
+      </div>
+      
+<div class="alert alert-success" role="alert" *ngIf="isProductAdded">
+ Product added Successfully !
+</div>
+
+<div id="chartContainer" style="height: 370px; width: 50%;" class="pb-3"></div>
+
+
+<div class="w-75 align-self-center background">
+ 
+  <div class="input-field col s6">
+    <input id="productid" type="text" class="validate" [(ngModel)]="productid">
+    <label for="productid">ProductId</label>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="productname" type="text" class="validate" [(ngModel)]="productname">
+    <label for="productname">ProductName</label>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="producttype" type="text" class="validate" [(ngModel)]="producttype">
+    <label for="producttype">ProductType</label>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="productbrand" type="text" class="validate" [(ngModel)]="productbrand">
+    <label for="productbrand">ProductBrand</label>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="productprice" type="number" class="validate" [(ngModel)]="productprice">
+    <label for="productprice">ProductPrice</label>
+  </div>
+
+  <div class="input-field col s6">
+    <input id="productquantity" type="number" class="validate" [(ngModel)]="productquantity">
+    <label for="productquantity">ProductQuantity</label>
+  </div>
+
+  <div>
+    <button class="waves-effect waves-light btn mr-2" (click)="addProduct()">ADD PRODUCT</button>
+ 
+    <button class="waves-effect waves-light btn mr-2"  (click)="viewProducts()">
+      SEE PRODUCTS</button>
+      <button class="waves-effect waves-light btn mr-2"  (click)="logOut()">
+        LOGOUT</button>
+  </div>
+
+
+</div>
+<br><br>
+<router-outlet>
+  
+</router-outlet>
+</div>
+</div>
+
+<!-- <user-profile></user-profile> -->

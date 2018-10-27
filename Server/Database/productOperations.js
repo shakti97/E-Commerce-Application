@@ -1,11 +1,11 @@
 // const mongoose=require('./common/connection');
-const UserRoleMapping= require('../../../eshopp/backend/db/schema/userRoleMapping');
-const Users=require('../../../eshopp/backend/db/schema/userSchema');
-const Product=require('../../../eshopp/backend/db/schema/productSchema');
-const Admin=require('../../../eshopp/backend/db/schema/adminSchema');
-const Roles=require('../../../eshopp/backend/db/schema/roleSchema');
-const Rights=require('../../../eshopp/backend/db/schema/rightSchema');
-const roleRightMapping=require('../../../eshopp/backend/db/schema/roleRightMapping');
+const UserRoleMapping= require('../Database/Schema/userRoleMapping');
+const Users=require('../Database/Schema/userSchema');
+// const Product=require('../../../eshopp/backend/db/schema/productSchema');
+// const Admin=require('../../../eshopp/backend/db/schema/adminSchema');
+const Roles=require('../Database/Schema/roleSchema');
+const Rights=require('../Database/Schema/rightSchema');
+const roleRightMapping=require('../Database/Schema/roleRightMapping');
 
 var productOperations={
 

@@ -7,14 +7,27 @@ const logger =require('../Logs/logConfig.js')
 const cors=require('./middlewares/cors.js');
 const session=require('express-session');
 
-
+const store=require('./middlewares/SessionHandling/sessionstore');
 const app=express();
+// app.use(session({
+//     secret: 'Shakti Session',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: { secure: false , maxAge:10*60*1000*365
+// }})); 
 app.use(session({
-    secret: 'Shakti Session',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false , maxAge:10*60*1000*365
-}})); 
+    store: store,
+        secret: 'nik',
+        resave: true,
+        saveUninitialized: true,
+        cookie: {
+    
+            httpOnly: false,
+            secure: false,
+            maxAge: 1000*60*5
+        }
+    
+    }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

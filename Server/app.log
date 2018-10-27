@@ -2792,3 +2792,29 @@
 {"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-26T13:12:38.101Z"}
 {"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-26T13:13:58.712Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-26T13:13:58.942Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-26T20:41:58.506Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T11:57:48.097Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:05:41.631Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:05:42.320Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:06:11.085Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:06:49.274Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:06:49.973Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-27T12:10:13.430Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-27T12:10:13.432Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-27T12:10:13.630Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-27T12:10:14.219Z"}
+{"message":"Category Added","level":"debug","timestamp":"2018-10-27T12:10:14.701Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-27T12:15:11.699Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-27T12:15:11.701Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-27T12:15:11.876Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-27T12:15:12.216Z"}
+{"message":"trying to make the status of products deactivate","level":"debug","timestamp":"2018-10-27T12:15:53.730Z"}
+{"message":"trying to make the status of products deactivate","level":"debug","timestamp":"2018-10-27T12:16:10.397Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:16:24.174Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:30:37.673Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:30:46.253Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:30:48.085Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:40:39.676Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:41:32.525Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:41:33.281Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-27T12:47:42.180Z"}

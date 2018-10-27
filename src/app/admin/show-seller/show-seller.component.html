@@ -1,0 +1,29 @@
+<div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">sellerid</th>
+        <th scope="col">Seller Name</th>
+        <th scope="col">Products Registered</th>
+        <th scope="col">Last date of updation</th>
+        <th scope="col">operation</th>
+        <th scope="col">operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let seller of sellers">
+        <td id="{{seller.username}}" #sellerid>{{seller.username}}</td>
+        <td>{{seller.name.firstname}} {{seller.name.lastname}}</td>
+        <td>a number</td>
+        <td>a date</td>
+        <td><button class="btn btn-danger" (click)="deleteSeller()">delete</button></td>
+        <td><button class="btn btn-success">View stock</button></td>
+      </tr>
+   
+    </tbody>
+  </table>
+  <td><button class="btn" (click)="goBack()">Go back</button></td>
+
+  
+  
+</div>

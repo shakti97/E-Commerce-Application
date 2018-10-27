@@ -8,17 +8,35 @@ import { LoginGaurd } from 'Gaurds/LoginGuard';
 import { SellerComponent } from 'app/seller/seller/seller.component';
 import LoginAuth from 'Services/LoginAuth.service';
 import { ShowProductsComponent } from 'app/seller/ShowProducts/showProducts.component';
+import { AdminLoginComponent } from 'app/admin/admin-login/admin-login.component';
+import { ShowSellerComponent } from 'app/admin/show-seller/show-seller.component';
+import { AuthGuardService } from 'app/guards/authguard.service';
+import { AdminDashboardComponent } from 'app/admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
     {
-        path : '', redirectTo : 'LoginPage', pathMatch : 'full', 
+        path : 'Seller', redirectTo : 'LoginPage', pathMatch : 'full', 
     },
     {
         path : 'LoginPage',
         component : SellerComponent,
     },
     {
-        path : 'DashBoard' ,
+
+        path: 'admin', component: AdminLoginComponent
+  
+      },
+      {
+        path: 'admin/dashboard/sellers', component: ShowSellerComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+
+        path: 'admin/dashboard/:email', component: AdminDashboardComponent,
+        canActivate: [AuthGuardService]
+      },
+    {
+        path : 'Seller/DashBoard' ,
         component : DashBoardComponent ,
         canActivate : [LoginGaurd],
         children : [

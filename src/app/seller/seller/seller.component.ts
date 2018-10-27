@@ -44,7 +44,7 @@ export class SellerComponent implements OnInit {
     let auth=this.Auth.LoginAuth(url,Data);
     auth.then((Data)=>{
       if(Data.isLogin){
-        this.router.navigate(['/DashBoard']);
+        this.router.navigate(['Seller/DashBoard']);
         console.log('hey  I m true');
       }});
     

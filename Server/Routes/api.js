@@ -4,8 +4,53 @@ const logger=require('../../Logs/logConfig.js')
 const SellerModel=require('../models/SellerModels.js');
 const UserOperations=require('../Database/UserOperations.js')
 
+
 //nik god code code
 const productOperations=require('../Database/productOperations');
+const sessionChecker=require('../middlewares/SessionHandling/sessionChecker');
+const UserRoles=require('../Database/Schema/userRoleMapping');
+const User=require('../Database/Schema/userSchema');
+const Roles=require('../Database/Schema/roleSchema');
+
+router.post('/fetchUser',(request, response)=>{
+
+  var adminObject=request.body;
+  // productOperations.addAdmin(adminObject,request,response);
+  productOperations.checkAdmin(adminObject,request,response);
+  console.log('request.body is',request.body);
+  
+});
+router.get('/logout', (request,response)=>{
+
+  console.log('inside the logut route..');
+  request.session.destroy(err=>{
+
+      console.log('session sestoryed and is accessible ',request.session);
+      response.json({
+
+          status: 200,
+          responseStatus: 'logged out'
+          });
+  });
+
+});
+router.post('/verifySession',sessionChecker,(request,response)=>{
+  console.log('inside the api/checksession');
+      response.json({
+  
+          status:200,
+          responseStatus: 'session found'
+      });
+  });
+router.get('/getSellers',sessionChecker,(request,response)=>{
+
+    console.log('getSellers api called...');
+    productOperations.getSellers(request,response);
+});
+
+router.post('/deleteSeller',sessionChecker, (request,response)=>{
+productOperations.deleteSeller(request,response);
+})
 
 /* GET api listing. */
 router.post('/api', (req, res) => {

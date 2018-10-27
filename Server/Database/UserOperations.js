@@ -1,5 +1,5 @@
-const userSchemaFile = require('./Schema/SellerSchema.js');
-const userSchema = userSchemaFile.userModel;
+
+const userSchema =  require('./Schema/userSchema.js');
 const productSchemaFile = require('./Schema/ProductSchema');
 const productSchema = productSchemaFile.ProductModel;
 const ValidateProduct = productSchemaFile.validateProduct;
@@ -30,7 +30,7 @@ const UserOperations = {
   fetchUser(userObject, req, res) {
     console.log(' inside fetchUser call');
     userSchema.find({
-      'userid': userObject.userId
+      'username': userObject.userId
     }, (err, docs) => {
       if (err) {
         logger.error('Error', err);
@@ -42,6 +42,21 @@ const UserOperations = {
           let result = passwordHash.verify(userObject.password, docs[0].password);
           if (result) {
             req.session.userid = userObject.userId;
+            req.session.save(err=>{
+
+              if(err){
+                  console.log('error saving the session...');
+                  response.json({
+                      error: err,
+                      responseText: 'error saving the session'
+                  });
+              }
+
+              else {
+
+                  console.log('session saved successfully..');
+              }
+          });
             console.log('session.uerid', req.session.userid);
             console.log('request.session.id', req.session.id);
             console.log('seleer is authenticated');
