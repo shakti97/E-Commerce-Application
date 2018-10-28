@@ -1,0 +1,191 @@
+.footer{
+    
+    width: 100%;
+    height: 600px;
+   background-color: #F0F0E9;
+   transform: translateY(40px);
+    
+}
+
+.cont1 h2{
+    
+        color: #B4B1AB;
+    font-family: abel;
+    font-size: 27px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    
+}
+
+.cont1 h2 span{
+    
+    
+    color: #FE980F;
+}
+
+.cont1 p{
+    
+    width: 120px;
+    color: #B3B3AD;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.mid img{
+    
+    width: 120px;
+    height: 80px;
+    border-radius: 3px;
+    border: 2px solid grey;
+}
+
+.mid p{
+    
+        color: #8C8C88;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.mid h2{
+    
+        color: #8c8c88;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: 0px;
+    transform: translateX(5px);
+    padding-top: 3px;
+}
+
+.cont2{
+    
+    display: flex;
+    
+    
+}
+
+.cont2 .mid{
+    
+    
+    padding-right: 30px;
+}
+
+.footer-top{
+    
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(40px);
+        border-bottom: 1px solid #FFFFFF;
+    padding-bottom: 15px;
+  
+}
+
+.child h2{
+    
+    color: #666663;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.child ul {
+    
+    list-style-type: none;
+}
+
+.child ul li a{
+    
+    text-decoration: none;
+        color: #8C8C88;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    display: inline-block;
+    padding: 8px 0;
+    transition-duration: 0.5s;
+}
+
+.child ul li a:hover{
+    
+        color: #FE980F;
+}
+
+.bottomwrap{
+    
+    display: flex;
+    
+}
+
+.child{
+    
+    margin-right: 80px
+}
+
+
+.footer-bottom{
+    
+    transform: translate(30px,120px);
+    
+}
+
+.shopper{
+    
+    width: 30%;
+
+}
+
+.shopper h2{
+    
+          color: #666663;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.shopper input{
+    
+        border: 1px solid #DDDDDD;
+    color: #CCCCC6;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-top: 0;
+    outline: medium none;
+    padding: 7px;
+}
+
+.shopper button{
+
+    background: #FE980F;
+    border: medium none;
+    border-radius: 0;
+    margin-left: -5px;
+    margin-top: -3px;
+    padding: 7px 17px;
+}
+
+.shopper button i{
+    
+    color: white;
+    font-size: 16px;
+}
+
+.shopper p{
+
+        color: #8C8C88;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 25px;
+    
+}
+
