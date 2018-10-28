@@ -12,8 +12,12 @@ import { AdminLoginComponent } from 'app/admin/admin-login/admin-login.component
 import { ShowSellerComponent } from 'app/admin/show-seller/show-seller.component';
 import { AuthGuardService } from 'app/guards/authguard.service';
 import { AdminDashboardComponent } from 'app/admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
+import { MainPageComponent } from 'app/user/website/main-page/main-page.component';
 
 const routes: Routes = [
+    {
+        path: '',component: MainPageComponent
+    },
     {
         path : 'Seller', redirectTo : 'LoginPage', pathMatch : 'full', 
     },

@@ -2818,3 +2818,11 @@
 {"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:41:32.525Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-27T12:41:33.281Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-27T12:47:42.180Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:52:06.142Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:52:08.066Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:53:17.931Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:54:07.155Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-28T11:55:55.960Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:56:32.089Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:56:50.634Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:57:06.851Z"}
