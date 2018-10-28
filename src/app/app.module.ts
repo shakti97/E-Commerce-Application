@@ -1,5 +1,5 @@
 // import { DashBoardRoutingModule } from './../Routes/DashBoardRouting.module';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +31,7 @@ import { MainPageComponent } from './user/website/main-page/main-page.component'
     AdminModule,
     HttpModule,
     SellerModule,
-    AppRoutingModule,AngularFontAwesomeModule
+    AppRoutingModule,AngularFontAwesomeModule,NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

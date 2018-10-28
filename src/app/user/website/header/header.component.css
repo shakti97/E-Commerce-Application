@@ -11,7 +11,7 @@
 
 .header-li:hover, .header-li a:hover{
     color: #ff5d56 !important;
-    transition-duration: 1s !important;
+    transition-duration: 0.5s !important;
    
 }
 
