@@ -1,0 +1,43 @@
+.header-li{
+    display: inline;
+    text-decoration: none;
+}
+
+.header-li a{
+    text-decoration: none !important;
+    color:black;
+   
+}
+
+.header-li:hover, .header-li a:hover{
+    color: #ff5d56 !important;
+    transition-duration: 1s !important;
+   
+}
+
+.sub-header-2 li i{
+    font-size: 20px;
+}
+
+.sub-header-2 ul li{
+    cursor: pointer;
+}
+.sub-header-1, .sub-header-2{
+    display: inline-block;
+}
+
+.main-navbar{
+    background-color: #8D889E;
+}
+.nav-item{
+
+}
+
+.nav-link{
+    color: black !important;
+}
+
+.nav-link:hover{
+    color: white !important;
+}
+

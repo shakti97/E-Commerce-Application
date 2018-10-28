@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { SellerModule } from './seller/seller.module';
 import { Router } from '../../node_modules/@angular/router';
@@ -31,7 +31,7 @@ import { MainPageComponent } from './user/website/main-page/main-page.component'
     AdminModule,
     HttpModule,
     SellerModule,
-    AppRoutingModule
+    AppRoutingModule,AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
