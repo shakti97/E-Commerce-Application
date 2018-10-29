@@ -16,7 +16,7 @@ import { MainPageComponent } from 'app/user/website/main-page/main-page.componen
 
 const routes: Routes = [
     {
-        path: '',component: MainPageComponent
+        path: '',component: AdminLoginComponent
     },
     {
         path : 'Seller', redirectTo : 'LoginPage', pathMatch : 'full', 
@@ -27,7 +27,7 @@ const routes: Routes = [
     },
     {
 
-        path: 'admin', component: AdminLoginComponent
+        path: 'website', component: MainPageComponent
   
       },
       {

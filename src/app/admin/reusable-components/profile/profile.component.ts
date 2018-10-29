@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
   selector: 'profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css','../../../../assets/materialize.min.css']
 
 })
 

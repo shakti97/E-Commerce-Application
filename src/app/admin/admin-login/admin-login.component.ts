@@ -3,24 +3,28 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router,ActivatedRoute} from '@angular/router';
 import {globalVariables} from '../../../globalConfig/globalVariables.js';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'adminLogin',
   templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css']
+  styleUrls: ['../../../assets/materialize.min.css','./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
 
   username:String;
   password:String;
   content: any;
+currentRoute: any;
 
-
-  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute) { 
+  constructor(private http: HttpClient, private router: Router,private route: ActivatedRoute,private _location: Location) { 
     this.username="";
     this.password="";
     this.content;
     console.log('admin login cons...');
+    this.currentRoute=this._location.path();
+
+    
   }
 
   ngOnInit() {
@@ -32,9 +36,10 @@ export class AdminLoginComponent implements OnInit {
 
         console.log('inside the if condition of immediate login post req');
         globalVariables.isAuthenticated=true;
-let returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/admin';
+let returnUrl=this.route.snapshot.queryParams['returnUrl'] || '/';
 console.log('return url in ngOnInit...', returnUrl);
 this.router.navigate([returnUrl]);
+// this.router.navigate([this.currentRoute]);
 
       }
 
@@ -103,7 +108,7 @@ else{
 
   console.log('kindly fill the credentials');
   globalVariables.isAuthenticated=false;
-  this.router.navigate(['/admin']);
+  this.router.navigate(['/']);
 }
     
   }
