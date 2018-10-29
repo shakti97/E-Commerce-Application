@@ -1,6 +1,6 @@
 import { Http } from '@angular/http';
 import { Injectable } from "../../node_modules/@angular/core";
-import { isArray } from 'util';
+// import {  } from 'util';
 
 @Injectable()
 export default class{
@@ -10,43 +10,38 @@ export default class{
             withCredentials:true,
         }
     }
-    AddProduct(pDetails){
-        console.log('addProduct function is running');
-        pDetails.SellerId = localStorage.getItem("userId");
-        let Url = 'http://localhost:1234/addProduct';
-        return this._http.post(Url,pDetails,this.option).toPromise()
+    AddToCart(productDetails){
+        console.log('addProduct function in UserProduct is running');
+        productDetails.userId = localStorage.getItem("userId");
+        let Url = 'http://localhost:1234/addToCart';
+        return this._http.post(Url,productDetails,this.option).toPromise()
                    .then(data=> { return data.json()})
                    .catch(error=>{return error})
     }
-    ShowProduct(){
-        console.log('show PRoducts function is running');
-        let Url='http://localhost:1234/GetProductSeller/'+ localStorage.getItem("userId");
+    ShowCartProduct(){
+        console.log('Showing Cart function in Service');
+        let Url='http://localhost:1234/showCartProduct/'+ localStorage.getItem("userId");
         return this._http.get(Url,this.option).toPromise()
             .then(data=>{console.log('Products data.json()',data.json()); return data.json()})
             .catch(error=>{return error});
     }
-    ShowProducts(){
-        console.log('show PRoducts function is running');
-        let Url='http://localhost:1234/showProducts';
-        return this._http.get(Url,this.option).toPromise()
-            .then(data=>{console.log('Products data.json()',data.json()); return data.json()})
-            .catch(error=>{return error});
-    }
-    DeleteProduct(productId :String[]){
-        console.log(productId);
-        console.log(isArray(productId));
+    DeleteCartProduct(productDetails){
+        // console.log(productId);
+        // console.log(isArray(productId));
         console.log('service delete fucntion trigger');
         console.log('options',this.option);
-        let Url='http://localhost:1234/deleteProducts/'+productId;
+        let Url='http://localhost:1234/deleteCartProduct/'+localStorage.getItem('userId')+"/"+productDetails.productId;
         return this._http.delete(Url,this.option).toPromise()
                 .then(data=>{console.log('isProduct Deleted'+ data); return data.json()})
                 .catch(error=>{ return error});
     }
-    UpdateProduct(productDetails : any){
+    UpdateCartProduct(productDetails : any,todo:number){
         console.log("Hello ",productDetails);
-        let Url='http://localhost:1234/updateProducts/'+productDetails.ProductId;
+        productDetails.userId=localStorage.getItem("userId");
+        productDetails.todo=todo;
+        let Url='http://localhost:1234/updateCartProduct/'+productDetails.ProductId;
         return this._http.put(Url,productDetails,this.option).toPromise()
                 .then(data=>{console.log('Product Updated'); return data.json()})
                 .catch(error=>{return error});
     }
-}
+}      

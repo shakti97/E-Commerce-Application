@@ -9,8 +9,8 @@
       <li class="list-group-item">Price : {{product.ProductPrice}}</li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">Buy Now</a>
-      <a href="#" class="card-link">Add To Cart </a>
+      <a  class="btn btn-secondary" >Buy Now</a>
+      <a  class="btn btn-primary" (click)="addToCart(product.ProductID)" >Add To Cart </a>
     </div>
   </div>
 </div>

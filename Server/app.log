@@ -2818,3 +2818,61 @@
 {"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-27T12:41:32.525Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-27T12:41:33.281Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-27T12:47:42.180Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:28:05.902Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:28:09.212Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:28:49.440Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:29:33.369Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:30:08.460Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:30:09.217Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:30:33.064Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:34:25.258Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:34:25.951Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:35:59.905Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:37:49.873Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:37:50.586Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-28T11:40:27.454Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-28T11:40:27.473Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-28T11:40:28.254Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:41:52.331Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:43:32.797Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:49:13.388Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-28T11:56:40.882Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:56:41.594Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:57:46.931Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:58:21.617Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T11:59:07.651Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:00:11.747Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:00:20.857Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:00:30.522Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:00:41.984Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:00:55.249Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:01:01.842Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:02:09.126Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:02:26.196Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:02:44.276Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:03:01.002Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:03:09.409Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:04:50.004Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:05:32.136Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:05:47.232Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:05:58.461Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:06:08.632Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:06:18.150Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:06:32.906Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:06:45.467Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:07:02.274Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:07:20.164Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:07:55.553Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:08:32.329Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:08:42.425Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:09:08.097Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:09:26.870Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:09:41.162Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:09:54.346Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:10:00.819Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:10:14.802Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:10:26.532Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:11:31.162Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:11:50.372Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:14:01.136Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-28T12:21:01.437Z"}

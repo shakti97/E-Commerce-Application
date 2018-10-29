@@ -626,7 +626,7 @@ const UserOperations = {
       });
     })
   },
-  UpdateProduct(pId,productDetails,res){
+  SellerUpdateProduct(pId,productDetails,res){
     console.log('Hey i m in the UserOperation in the UpdateProduct');
     productSchema.findByIdAndUpdate(pId,{
       name: productDetails.ProductName,
@@ -645,7 +645,176 @@ const UserOperations = {
         res.send(true);
       }
     })
+  },
+  UpdateProduct(pId,todo,res){
+    if(todo>1){
+      console.log('decrease the qunatity of the prpoduct in the backend by 1');
+    return new Promise((resolve,reject)=>{
+      productSchema.findByIdAndUpdate(pId,{
+        $dec :{ quantity : inc}
+      },(error)=>{
+        if(error){
+          console.log('error',error);
+          res.status(500).send({ErrorMsg : error});
+          reject(error);
+        }else{
+          console.log("Product Quantity Updated");
+          resolve(true);
+        }
+      })
+    })
+    }
+    else{
+      console.log('increase the qunatity of the prpoduct in the backend by 1');
+      return new Promise((resolve,reject)=>{
+        productSchema.findByIdAndUpdate(pId,{
+          $inc :{ quantity : 1}
+        },(error)=>{
+          if(error){
+            console.log('error',error);
+            res.status(500).send({ErrorMsg : error});
+            reject(error);
+          }else{
+            console.log("Product Quantity Updated");
+            resolve(true);
+          }
+        })
+      })
+    }
+  },
+  addToCart(productId,userId,res){
+    console.log("I'm in add to cart");
+      userSchema.findById(userId, (err, userDetails) => {
+        if (err) {
+          console.log('error', err);
+          res.status(500).send({error:'got Error in finding the userId'})
+        } else {
+          console.log('userDetails', userDetails);
+          if (userDetails) {
+            console.log('found the user');
+            this.UpdateProduct(productId,1,res);
+            userSchema.update({
+              _id : userId
+            }, {
+              $push: {
+                Cart: {ProductId :productId,Quantity :qty}
+              }
+            }, (error, docum) => {
+              if (error) {
+                console.log('Error', error);
+                res.status(500).send({"ErrorMsg" : error})
+              } else {
+                console.log('UserData Document Returned', docum);
+                if (docum) {
+                  console.log('productId pushed, have some value in cart previously');
+                  res.status(200).send(true);
+                }
+              }
+            });
+          }
+          else{
+            console.log('not found the user');
+            res.status(500).send({msg : "Not found the User"})
+          }
+
+        }
+      });
+  },
+  showCartProduct(userId,res){
+    var productArray=[];
+    console.log('showing the cart Product of the User');
+    userSchema.find(userId).exec((error,userDetails)=>{
+      if(error){
+        console.log('error',error);
+        res.status(500).send({"ErrorMsg" : error});
+      }
+      else{
+        ProductIdArray=userDetails.cart;
+        LengthOfIdArray=ProductIdArray.length;
+        ProductIdArray.forEach(product=>{
+          qty=product.Quantity;
+          productSchema.findById(product.ProductId).exec((error,products)=>{
+            if(error){
+              console.log('error',error);
+              res.status(500).send({"ErrorMsg" : error});
+            }
+            else{
+              productDetail={
+                ProductID : product._id,
+                ProductName : product.name,
+                ProductPrice : product.price,
+                ProductQuantity : qty
+              };
+              productArray.push(productDetail);
+            }
+          })
+        })
+        if(productArray.length===LengthOfIdArray){
+          res.status(200).send({products : productArray});
+        }
+      }
+    })
+  },
+  deleteCartProduct(userId,productId,res){
+    console.log('i m in the delete cart product');
+    userSchema.findById(userId).exec((error,userDetails)=>{
+      if(error){
+        console.log('error',error);
+        res.status(500).send({"ErrorMsg" : error});
+      }
+      else{
+        userSchema.update({
+          _id : userId
+        }, {
+          $pull: {
+            ProductId: pid
+          }
+        },(error)=>{
+          if(error){
+            console.log('error',error);
+            res.status(500).send({"ErrorMsg" : error});
+          }
+          else{
+            res.status(200).send()
+          }
+        })
+      }
+    })
+  },
+  updateCartProduct(productId,userId,todo,res){
+    if(todo>0){
+    this.UpdateProduct(productId,todo,res);
+
+    userSchema.findByIdAndUpdate(userId,{
+      $inc :{ quantity : 1}
+    },(error)=>{
+      if(error){
+        console.log('error',error);
+        res.status(500).send({ErrorMsg : error});
+        reject(error);
+      }else{
+        console.log("Product Quantity Updated");
+        res.status(200).send(true);
+      }
+    })
   }
+  else{
+    this.UpdateProduct(productId,todo,res);
+
+    userSchema.findByIdAndUpdate(userId,{
+      $dec :{ quantity : 1}
+    },(error)=>{
+      if(error){
+        console.log('error',error);
+        res.status(500).send({ErrorMsg : error});
+        reject(error);
+      }else{
+        console.log("Product Quantity Updated");
+        res.status(200).send(true);
+      }
+    })
+  }
+}
 }
 
 module.exports = UserOperations;

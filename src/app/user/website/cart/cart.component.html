@@ -1,0 +1,30 @@
+<div class="form-group">  
+  <fieldset>
+      <legend>Cart List</legend>
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <td>CategoryName</td>
+                      <td>BrandName</td>
+                      <td>ProductName</td>
+                      <td>Quantity</td>
+                      <td>ProductPrice</td>
+                      <td>Delete</td>
+                      <td>Update</td>
+                  </tr>
+              </thead>
+              <tbody id="itemtable">
+                  <tr *ngFor='let product of cartproducts'>
+                      <td>{{product.CategoryName}}</td>
+                      <td>{{product.BrandName}}</td>
+                      <td>{{product.ProductName}}</td>
+                      <td>{{Quantity}}</td>
+                      <td>{{product.ProductPrice}}</td>
+                      <td><button class="btn btn-danger" (click)='DeleteCartProduct(product.ProductID)'>Delete</button></td>
+                      <td><button class="btn btn-primary" (click)='UpdateQuantity(product.ProductID,+1)'> +1 </button>
+                      <button class="btn btn-secondary" (click)='UpdateQuantity(product.ProductID,-1)'> -1 </button></td>
+                    </tr>
+              </tbody>
+          </table>
+      </fieldset>
+  </div>

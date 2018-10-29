@@ -113,7 +113,7 @@ router.put('/updateProducts/:pId?',(req,res)=>{
   pId=req.params.pId;
   productDetails=req.body;
   
-  UserOperations.UpdateProduct(pId,productDetails,res);
+  UserOperations.SellerUpdateProduct(pId,productDetails,res);
   
 })
 router.get('/GetProductSeller/:sId',(req,res)=>{
@@ -123,6 +123,34 @@ router.get('/GetProductSeller/:sId',(req,res)=>{
   UserOperations.GetProductSeller(res,sId);
 })
 
+router.post('/addToCart',(req,res)=>{
+  console.log('adding the product to the cart');
+  pId=req.body.productId;
+  sId=req.body.userId;
+  console.log('pId '+pId+" sId "+sId);
+  UserOperations.addToCart(pId,sId,res);
+});
+router.get('/showCartProduct/:sId',(req,res)=>{
+  console.log('showing the product  in the cart');
+  sId=req.params.sId;
+  console.log('sId ',sId );
+  UserOperations.showCartProduct(sId,res);
+});
+router.delete('/deleteCartProduct/:sId/:pId',(req,res)=>{
+  console.log('showing the product  in the cart');
+  sId=req.params.sId;
+  pId=req.params.pId;
+  console.log('sId ',sId + "pId ",pId );
+  UserOperations.deleteCartProduct(sId,pId,res);
+});
+router.get('/updateCartProduct/:pId',(req,res)=>{
+  console.log('showing the product  in the cart');
+  pId=req.params.pId;
+  sId=req.body.userId;
+  todo=req.body.todo;
+  console.log('pId ',pId+' userId ',sId );
+  UserOperations.updateCartProduct(pId,sId,todo,res);
+})
 
 
 module.exports = router;
