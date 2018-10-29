@@ -13,6 +13,7 @@ import { ShowSellerComponent } from 'app/admin/show-seller/show-seller.component
 import { AuthGuardService } from 'app/guards/authguard.service';
 import { AdminDashboardComponent } from 'app/admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
 import { MainPageComponent } from 'app/user/website/main-page/main-page.component';
+import { CartComponent } from 'app/user/website/cart/cart.component';
 
 const routes: Routes = [
     {
@@ -38,6 +39,10 @@ const routes: Routes = [
 
         path: 'admin/dashboard/:email', component: AdminDashboardComponent,
         canActivate: [AuthGuardService]
+      },
+      {
+          path : "cart",
+          component : CartComponent
       },
     {
         path : 'Seller/DashBoard' ,

@@ -1,5 +1,4 @@
-
-const userSchema =  require('./Schema/userSchema.js');
+const userSchema = require('./Schema/userSchema.js');
 const productSchemaFile = require('./Schema/ProductSchema');
 const productSchema = productSchemaFile.ProductModel;
 const ValidateProduct = productSchemaFile.validateProduct;
@@ -11,22 +10,22 @@ const brandSchema = brandSchemaFile.brandModel;
 const validateBrand = brandSchemaFile.validateBrand;
 const passwordHash = require('password-hash');
 const logger = require('../../Logs/logConfig.js');
-
+var totalProducts = 0;
 
 const UserOperations = {
   addUser(userObject) {
     userObject.password = passwordHash.generate(userObject.password);
-    userSchema.create(userObject, (err,userDoc) => {
+    userSchema.create(userObject, (err, userDoc) => {
       if (err) {
         logger.error('Error occured', error);
         console.log('Error Occured');
       } else {
         logger.debug('Record added');
-        console.log('Record Added To the DaTabase'+userDoc._id);
+        console.log('Record Added To the DaTabase' + userDoc._id);
       }
     })
   },
-  
+
   fetchUser(userObject, req, res) {
     console.log(' inside fetchUser call');
     userSchema.find({
@@ -42,26 +41,24 @@ const UserOperations = {
           let result = passwordHash.verify(userObject.password, docs[0].password);
           if (result) {
             req.session.userid = userObject.userId;
-            req.session.save(err=>{
+            req.session.save(err => {
 
-              if(err){
-                  console.log('error saving the session...');
-                  response.json({
-                      error: err,
-                      responseText: 'error saving the session'
-                  });
+              if (err) {
+                console.log('error saving the session...');
+                response.json({
+                  error: err,
+                  responseText: 'error saving the session'
+                });
+              } else {
+
+                console.log('session saved successfully..');
               }
-
-              else {
-
-                  console.log('session saved successfully..');
-              }
-          });
+            });
             console.log('session.uerid', req.session.userid);
             console.log('request.session.id', req.session.id);
             console.log('seleer is authenticated');
             res.send({
-              userId : docs[0]._id,
+              userId: docs[0]._id,
               isLogin: true
             });
           } else {
@@ -103,18 +100,18 @@ const UserOperations = {
       "price": productDetails.ProductPrice,
       "image": productDetails.ProductImg,
       "description": productDetails.ProductInfo,
-      "sellerId" : productDetails.SellerId
+      "sellerId": productDetails.SellerId
     })
     if (CategoryError || BrandError || ProductError) {
       res.status(400).send('ErrorDetails' + CategoryError.details[0].message || BrandError.details[0].message || ProductError.details[0].message)
     } else {
-      isProductAdded = this.ProductAdded(productDetails.ProductName, productDetails.ProductQuantity, productDetails.ProductPrice, productDetails.ProductImg, productDetails.ProductInfo,productDetails.SellerId).then((data) => {
+      isProductAdded = this.ProductAdded(productDetails.ProductName, productDetails.ProductQuantity, productDetails.ProductPrice, productDetails.ProductImg, productDetails.ProductInfo, productDetails.SellerId).then((data) => {
         if (data) {
-          isBrandAdded = this.BrandAdded(productDetails.ProductBrand,productDetails.SellerId);
+          isBrandAdded = this.BrandAdded(productDetails.ProductBrand, productDetails.SellerId);
           console.log('isBrandAdded promise', isBrandAdded);
           isBrandAdded.then((data) => {
             if (data) {
-              isCategoryAdded = this.CategoryAdded(productDetails.ProductCategory, BrandId,productDetails.SellerId);
+              isCategoryAdded = this.CategoryAdded(productDetails.ProductCategory, BrandId, productDetails.SellerId);
               isCategoryAdded.then((data) => {
                 if (data) {
                   console.log('Product Added Succcessfully');
@@ -144,7 +141,7 @@ const UserOperations = {
 
     }
   },
-  ProductAdded(ProductName, ProductQuantity, ProductPrice, ProductImg, ProductInfo,SellerId) {
+  ProductAdded(ProductName, ProductQuantity, ProductPrice, ProductImg, ProductInfo, SellerId) {
     console.log('product Adding');
     return new Promise((resolve, reject) => {
       productSchema.create({
@@ -153,7 +150,7 @@ const UserOperations = {
         price: ProductPrice,
         image: ProductImg,
         description: ProductInfo,
-        sellerId : SellerId
+        sellerId: SellerId
       }, (error, Productdoc) => {
         if (error) {
           logger.error('error', error);
@@ -435,7 +432,7 @@ const UserOperations = {
             BrandName: brand.brandName,
             ProductID: products._id,
             ProductName: products.name,
-            ProductQuantity : products.quantity,
+            ProductQuantity: products.quantity,
             ProductPrice: products.price,
             ProductImage: products.image,
             ProductDescription: products.description
@@ -454,64 +451,146 @@ const UserOperations = {
       })
     })
   },
-  GetProductSeller(res,SellerId){
-    var productDetail={};
-    var productArray=[];
-    totalProducts=0;
-      productSchema.find({
-        sellerId : SellerId
-      },function(err,docs){
-        if(err){
-          res.status(400).send('error caught');
-        }
-        else{
-          console.log("result",docs);
-          docs.forEach(doc=>{
-          productDetail={
-            Date : doc.Date,
-            ProductID : doc._id,
-            ProductName : doc.name,
-            ProductQuantity :doc.quantity,
-            ProductPrice : doc.price,
-            ProductImage : doc.image,
-            ProductDescription : doc.description
+  GetProductSeller(res, SellerId) {
+    var productDetail = {};
+    var productArray = [];
+    totalProducts = 0;
+    productSchema.find({
+      sellerId: SellerId
+    }, function (err, docs) {
+      if (err) {
+        res.status(400).send('error caught');
+      } else {
+        console.log("result", docs);
+        console.log("docs.length", docs.length);
+        docs.forEach(doc => {
+          productDetail = {
+            Date: doc.Date,
+            ProductID: doc._id,
+            ProductName: doc.name,
+            ProductQuantity: doc.quantity,
+            ProductPrice: doc.price,
+            ProductImage: doc.image,
+            ProductDescription: doc.description
           };
-          console.log('productDetals ', productDetail );
+          console.log('productDetals ', productDetail);
           brandSchema.find({
-            "ProductId" : { "$in" : [doc._id]}
-          },function(err,brandDocs){
-            if(err){
-              res.status(400).send('error caught');
+            "ProductId": {
+              "$in": [doc._id]
             }
-            else{
-              console.log('brandDocs',brandDocs);
-              productDetail.BrandName =brandDocs[0].brandName;
-              console.log('productDetails after brand added',productDetail);
+          }, function (err, brandDocs) {
+            if (err) {
+              res.status(400).send('error caught');
+            } else {
+              console.log('brandDocs', brandDocs);
+              productDetail.BrandName = brandDocs[0].brandName;
+              console.log('productDetails after brand added', productDetail);
               CategorySchema.find({
-                Active : true,
-                "ProductId" : { "$in" : [doc._id]}
-              },function(err,CategoryDocs){
-                if(err){
-                  res.status(400).send('error caught');
+                Active: true,
+                "ProductId": {
+                  "$in": [doc._id]
                 }
-                else{
-                  console.log('CategoryDocs',CategoryDocs);
-                  productDetail.CategoryName=CategoryDocs[0].CategoryName;
-                  console.log('Category Details added',productDetail);
-                  totalProducts+=1;
+              }, function (err, CategoryDocs) {
+                if (err) {
+                  res.status(400).send('error caught');
+                } else {
+                  console.log('CategoryDocs', CategoryDocs);
+                  productDetail.CategoryName = CategoryDocs[0].CategoryName;
+                  console.log('Category Details added', productDetail);
+                  totalProducts += 1;
                   productArray.push(productDetail)
-                  if(totalProducts==docs.length){
-                    res.status(200).send({products : productArray});
+                  if (totalProducts == docs.length) {
+                    console.log('send response');
+                    res.status(200).send({
+                      products: productArray
+                    });
                   }
                 }
               })
             }
           })
         })
-        
+
+      }
+    })
+  },
+  GetSellerProduct(res, SellerId) {
+    var productDetail = {};
+    var productArray = [];
+    productSchema.find({
+      sellerId: SellerId
+    }, function (err, docs) {
+      if (err) {
+        res.status(400).send('error caught');
+      } else {
+        console.log("result", docs);
+        console.log("docs.length", docs.length);
+        productArrayLength = docs.length;
+        docs.forEach(doc => {
+          productDetail = {
+            Date: doc.Date,
+            ProductID: doc._id,
+            ProductName: doc.name,
+            ProductQuantity: doc.quantity,
+            ProductPrice: doc.price,
+            ProductImage: doc.image,
+            ProductDescription: doc.description
+          };
+          console.log('productDetals ', productDetail);
+          UserOperations.GetSellerBrand(productDetail, doc._id, productArray, productArrayLength, res).then(res => {
+            console.log("brand ", res)
+          });
+
+        })
+      }
+    })
+  },
+
+  async GetSellerBrand(productDetail, docs, productArray, productArrayLength, res) {
+    await brandSchema.find({
+      "ProductId": {
+        "$in": [docs]
+      }
+    }, function (err, brandDocs) {
+      if (err) {
+        res.status(400).send('error caught');
+      } else {
+        console.log('brandDocs', brandDocs);
+        productDetail.BrandName = brandDocs[0].brandName;
+        console.log('productDetails after brand added', productDetail);
+        UserOperations.GetSellerCategory(productDetail, docs, productArray, productArrayLength, res).then(res => {
+          console.log("category ", res)
+        });
+      }
+    })
+  },
+  async GetSellerCategory(productDetail, docs, productArray, productArrayLength, res) {
+    await CategorySchema.find({
+      Active: true,
+      "ProductId": {
+        "$in": [docs._id]
+      }
+    }, function (err, CategoryDocs) {
+      if (err) {
+        res.status(400).send('error caught');
+      } else {
+        console.log('CategoryDocs', CategoryDocs);
+        productDetail.CategoryName = CategoryDocs[0].CategoryName;
+        console.log('Category Details added', productDetail);
+        totalProducts += 1;
+        console.log('totalProducts ' + totalProducts);
+        productArray.push(productDetail)
+        console.log('productArray ', productArray);
+
+        if (totalProducts == productArrayLength) {
+          console.log('send response');
+          res.status(200).send({
+            products: productArray
+          });
         }
-      })
-    },
+      }
+    })
+  },
 
   DeleteProducts(pId, res) {
     console.log('Delete Products ' + pId);
@@ -534,14 +613,14 @@ const UserOperations = {
                     res.status(200).send({
                       isProductDeleted: true
                     });
-                  },reject => {
+                  }, reject => {
                     console.log('Promise rejcted in category');
                   })
                   .catch(error1 => {
                     console.log('what the fuck, the error in category', error1);
                   })
 
-              },reject => {
+              }, reject => {
                 console.log('promise rejected in brand');
               })
               .catch(error2 => {
@@ -626,15 +705,15 @@ const UserOperations = {
       });
     })
   },
-  SellerUpdateProduct(pId,productDetails,res){
+  SellerUpdateProduct(pId, productDetails, res) {
     console.log('Hey i m in the UserOperation in the UpdateProduct');
-    productSchema.findByIdAndUpdate(pId,{
+    productSchema.findByIdAndUpdate(pId, {
       name: productDetails.ProductName,
-        quantity: productDetails.ProductQuantity,
-        price: productDetails.ProductPrice,
-        image: productDetails.ProductImg,
-        description: productDetails.ProductInfo
-    },(error) => {
+      quantity: productDetails.ProductQuantity,
+      price: productDetails.ProductPrice,
+      image: productDetails.ProductImg,
+      description: productDetails.ProductInfo
+    }, (error) => {
       if (error) {
         logger.error('error', error);
         console.log('error', error);
@@ -646,175 +725,245 @@ const UserOperations = {
       }
     })
   },
-  UpdateProduct(pId,todo,res){
-    if(todo>1){
+  UpdateProduct(pId, todo, res) {
+    if (todo > 0) {
       console.log('decrease the qunatity of the prpoduct in the backend by 1');
-    return new Promise((resolve,reject)=>{
-      productSchema.findByIdAndUpdate(pId,{
-        $dec :{ quantity : inc}
-      },(error)=>{
-        if(error){
-          console.log('error',error);
-          res.status(500).send({ErrorMsg : error});
-          reject(error);
-        }else{
-          console.log("Product Quantity Updated");
-          resolve(true);
-        }
-      })
-    })
-    }
-    else{
-      console.log('increase the qunatity of the prpoduct in the backend by 1');
-      return new Promise((resolve,reject)=>{
-        productSchema.findByIdAndUpdate(pId,{
-          $inc :{ quantity : 1}
-        },(error)=>{
-          if(error){
-            console.log('error',error);
-            res.status(500).send({ErrorMsg : error});
+      return new Promise((resolve, reject) => {
+        productSchema.findByIdAndUpdate(pId, {
+          $inc: {
+            quantity: -1
+          }
+        }, (error) => {
+          if (error) {
+            // console.log('error', error);
+            // res.status(500).send({  
+            //   ErrorMsg: error
+            // });
             reject(error);
-          }else{
-            console.log("Product Quantity Updated");
+          } else {
+            console.log("Product Quantity Updated -1");
+            resolve(true);
+          }
+        })
+      })
+    } else {
+      console.log('increase the qunatity of the prpoduct in the backend by 1');
+      return new Promise((resolve, reject) => {
+        productSchema.findByIdAndUpdate(pId, {
+          $inc: {
+            quantity: 1
+          }
+        }, (error) => {
+          if (error) {
+            console.log('error', error);
+            // res.status(500).send({
+            //   ErrorMsg: error
+            // });
+            reject(error);
+          } else {
+            console.log("Product Quantity Updated +1 in backend");
             resolve(true);
           }
         })
       })
     }
   },
-  addToCart(productId,userId,res){
+  addToCart(productId, userId, res) {
     console.log("I'm in add to cart");
-      userSchema.findById(userId, (err, userDetails) => {
-        if (err) {
-          console.log('error', err);
-          res.status(500).send({error:'got Error in finding the userId'})
-        } else {
-          console.log('userDetails', userDetails);
-          if (userDetails) {
-            console.log('found the user');
-            this.UpdateProduct(productId,1,res);
-            userSchema.update({
-              _id : userId
-            }, {
-              $push: {
-                Cart: {ProductId :productId,Quantity :qty}
+    userSchema.findById(userId, (err, userDetails) => {
+      if (err) {
+        console.log('error', err);
+        res.status(500).send({
+          error: 'got Error in finding the userId'
+        })
+      } else {
+        console.log('userDetails', userDetails);
+        if (userDetails) {
+          console.log('found the user');
+          this.UpdateProduct(productId, 1, res);
+          var pObj = {
+            ProductId: productId,
+            Quantity: 1
+          }
+          userSchema.update({
+            _id: userId
+          }, {
+            $push: {
+              cart: pObj
+            }
+          }, (error, docum) => {
+            if (error) {
+              console.log('Error', error);
+              res.status(500).send({
+                "ErrorMsg": error
+              })
+            } else {
+              console.log('UserData Document Returned', docum);
+              if (docum) {
+                console.log("docum", docum);
+                console.log('productId pushed, have some value in cart previously');
+                res.status(200).send({
+                  isProductAdded: true
+                });
               }
-            }, (error, docum) => {
+            }
+          });
+        } else {
+          console.log('not found the user');
+          res.status(500).send({
+            msg: "Not found the User"
+          })
+        }
+
+      }
+    });
+  },
+  showCartProduct(userId, res) {
+    var productArray = [];
+    console.log('showing the cart Product of the User');
+    userSchema.findById(
+      userId
+    ).exec((error, userDetails) => {
+      if (error) {
+        console.log('error', error);
+        res.status(500).send({
+          "ErrorMsg": error
+        });
+      } else {
+        console.log('userDetails ', userDetails);
+        ProductIdArray = userDetails.cart;
+        console.log('userDetails.cart', userDetails.cart);
+        if (userDetails.cart) {
+          console.log('userDetails does have some content');
+          LengthOfIdArray = ProductIdArray.length;
+          ProductIdArray.forEach(product => {
+            console.log("product ", product)
+            qty = product.Quantity;
+            productSchema.findById(product.ProductId).exec((error, products) => {
               if (error) {
-                console.log('Error', error);
-                res.status(500).send({"ErrorMsg" : error})
+                console.log('error', error);
+                res.status(500).send({
+                  "ErrorMsg": error
+                });
               } else {
-                console.log('UserData Document Returned', docum);
-                if (docum) {
-                  console.log('productId pushed, have some value in cart previously');
-                  res.status(200).send(true);
+                productDetail = {
+                  ProductID: products._id,
+                  ProductName: products.name,
+                  ProductPrice: products.price,
+                  ProductQuantity: qty
+                };
+                productArray.push(productDetail);
+                console.log("productArray ", productArray);
+                if (productArray.length === LengthOfIdArray) {
+                  console.log('send response');
+                  res.status(200).send({
+                    products: productArray
+                  });
+
                 }
               }
-            });
-          }
-          else{
-            console.log('not found the user');
-            res.status(500).send({msg : "Not found the User"})
-          }
+            })
+            console.log('productArray Length ', productArray.length);
+            console.log('LengthOfArray ', LengthOfIdArray);
 
-        }
-      });
-  },
-  showCartProduct(userId,res){
-    var productArray=[];
-    console.log('showing the cart Product of the User');
-    userSchema.find(userId).exec((error,userDetails)=>{
-      if(error){
-        console.log('error',error);
-        res.status(500).send({"ErrorMsg" : error});
-      }
-      else{
-        ProductIdArray=userDetails.cart;
-        LengthOfIdArray=ProductIdArray.length;
-        ProductIdArray.forEach(product=>{
-          qty=product.Quantity;
-          productSchema.findById(product.ProductId).exec((error,products)=>{
-            if(error){
-              console.log('error',error);
-              res.status(500).send({"ErrorMsg" : error});
-            }
-            else{
-              productDetail={
-                ProductID : product._id,
-                ProductName : product.name,
-                ProductPrice : product.price,
-                ProductQuantity : qty
-              };
-              productArray.push(productDetail);
-            }
           })
-        })
-        if(productArray.length===LengthOfIdArray){
-          res.status(200).send({products : productArray});
+        } else {
+          res.status(200).send("No Product");
         }
       }
     })
   },
-  deleteCartProduct(userId,productId,res){
+  deleteCartProduct(userId, pId, res) {
     console.log('i m in the delete cart product');
-    userSchema.findById(userId).exec((error,userDetails)=>{
-      if(error){
-        console.log('error',error);
-        res.status(500).send({"ErrorMsg" : error});
-      }
-      else{
+    userSchema.findById(userId).exec((error, userDetails) => {
+      if (error) {
+        console.log('error', error);
+        res.status(500).send({
+          "ErrorMsg": error
+        });
+      } else {
+        console.log('found the user ', userDetails);
         userSchema.update({
-          _id : userId
+          _id: userId
         }, {
           $pull: {
-            ProductId: pid
+            "cart": {
+              "ProductId": pId
+            }
           }
-        },(error)=>{
-          if(error){
-            console.log('error',error);
-            res.status(500).send({"ErrorMsg" : error});
-          }
-          else{
-            res.status(200).send()
+        }, (error) => {
+          if (error) {
+            console.log('error', error);
+            res.status(500).send({
+              "ErrorMsg": error
+            });
+          } else {
+            res.status(200).send({
+              isProductDeleted: true
+            });
           }
         })
       }
     })
   },
-  updateCartProduct(productId,userId,todo,res){
-    if(todo>0){
-    this.UpdateProduct(productId,todo,res);
+  updateCartProduct(productId, userId, todo, res) {
+    if (todo > 0) {
+      console.log('todo to change in the add to cart qunatity ', todo);
+      this.UpdateProduct(productId, todo, res);
 
-    userSchema.findByIdAndUpdate(userId,{
-      $inc :{ quantity : 1}
-    },(error)=>{
-      if(error){
-        console.log('error',error);
-        res.status(500).send({ErrorMsg : error});
-        reject(error);
-      }else{
-        console.log("Product Quantity Updated");
-        res.status(200).send(true);
-      }
-    })
-  }
-  else{
-    this.UpdateProduct(productId,todo,res);
+      userSchema.findByIdAndUpdate(userId, {
+        $inc: {
+          "cart.$[elem].Quantity": 1
+        }
+      }, {
+        "arrayFilters": [{
+          "elem.ProductId": productId
+        }]
+      }, (error) => {
+        if (error) {
+          console.log('error', error);
+          res.status(500).send({
+            ErrorMsg: error
+          });
+          reject(error);
+        } else {
+          console.log("Product Quantity Updated for addTo Cart +1");
+          res.status(200).send(true);
+        }
+      })
+    } else {
+      this.UpdateProduct(productId, todo, res);
 
-    userSchema.findByIdAndUpdate(userId,{
-      $dec :{ quantity : 1}
-    },(error)=>{
-      if(error){
-        console.log('error',error);
-        res.status(500).send({ErrorMsg : error});
-        reject(error);
-      }else{
-        console.log("Product Quantity Updated");
-        res.status(200).send(true);
-      }
-    })
+      userSchema.findByIdAndUpdate(userId, {
+        $inc: {
+          "cart.$[elem].Quantity": -1
+        }
+      }, {
+        "arrayFilters": [{
+          "elem.ProductId": productId
+        }]
+      }, (error) => {
+        if (error) {
+          console.log('error', error);
+          res.status(500).send({
+            ErrorMsg: error
+          });
+          reject(error);
+        } else {
+          console.log("Product Quantity Updated for Add to Cart -1");
+          res.status(200).send(true);
+        }
+      })
+    }
+  },
+   ProductCount(res){
+    async function f(){
+      count=await productSchema.find().count();
+      return count;
+    }
+    var count=f();
+    count.then(data=>{console.log(data);res.send({"count":count})});
   }
-}
 }
 
 module.exports = UserOperations;

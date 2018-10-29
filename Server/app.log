@@ -2831,3 +2831,109 @@
 {"message":"api works","level":"debug","timestamp":"2018-10-28T12:18:39.454Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-28T12:18:51.687Z"}
 {"message":"api works","level":"debug","timestamp":"2018-10-28T14:18:04.292Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T09:59:01.225Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:09:08.134Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:11:25.616Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T10:12:05.650Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T10:12:07.345Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-29T10:13:51.588Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-29T10:13:51.589Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-29T10:13:51.787Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-29T10:13:52.141Z"}
+{"message":"Category Added","level":"debug","timestamp":"2018-10-29T10:13:52.547Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:14:12.171Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T10:14:42.140Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-29T10:16:17.271Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-29T10:16:17.273Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-29T10:16:17.450Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-29T10:16:17.786Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:16:27.632Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:18:25.756Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:18:56.062Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:19:09.563Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:19:27.345Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:19:34.175Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:21:37.170Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:22:09.079Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:23:09.065Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:23:17.166Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:23:59.369Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:24:50.776Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:40:18.120Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:46:23.933Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:48:33.178Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T10:50:09.935Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T11:57:30.639Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T11:57:33.296Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-29T11:59:42.928Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-29T11:59:42.932Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-29T11:59:43.178Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-29T11:59:43.527Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T12:00:09.686Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T12:00:16.823Z"}
+{"message":"trying to make the status of products deactivate","level":"debug","timestamp":"2018-10-29T12:00:34.253Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T12:00:53.379Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T12:02:30.575Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-29T12:03:47.245Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-29T12:03:47.247Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-29T12:03:47.424Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-29T12:03:47.772Z"}
+{"message":"Category Added","level":"debug","timestamp":"2018-10-29T12:03:48.101Z"}
+{"message":"trying to add product","level":"debug","timestamp":"2018-10-29T12:06:49.357Z"}
+{"message":"AddProduct api","level":"debug","timestamp":"2018-10-29T12:06:49.360Z"}
+{"message":"Product Added","level":"debug","timestamp":"2018-10-29T12:06:49.541Z"}
+{"message":"Brand Added","level":"debug","timestamp":"2018-10-29T12:06:49.876Z"}
+{"message":"Category Added","level":"debug","timestamp":"2018-10-29T12:06:50.249Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T12:07:29.444Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T14:02:54.380Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T14:05:57.119Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T14:05:58.761Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T14:09:09.541Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:21:31.481Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:23:50.085Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T14:23:56.539Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:24:07.296Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:24:28.873Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:38:30.331Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:39:06.807Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:39:43.883Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:40:51.920Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:42:15.802Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:42:36.148Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:43:32.556Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:43:49.710Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:44:10.176Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:44:24.992Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:45:00.351Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:45:50.801Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:46:23.134Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:46:55.351Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:47:23.330Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:47:59.968Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:48:34.059Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:48:54.532Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:50:00.055Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:51:36.546Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T14:52:17.604Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T14:52:31.626Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T14:52:32.558Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:03:31.643Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T15:03:40.056Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:03:41.844Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:05:05.215Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:06:17.466Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:09:36.374Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T15:11:09.584Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:13:40.620Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:20:32.586Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T15:20:41.769Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T15:20:44.389Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T18:04:00.282Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T18:04:05.495Z"}
+{"message":"inside doLogin Routes","level":"debug","timestamp":"2018-10-29T18:04:30.655Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T18:04:32.394Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T18:05:56.725Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T18:06:23.882Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T18:07:41.639Z"}
+{"message":"api works","level":"debug","timestamp":"2018-10-29T18:14:38.956Z"}
+{"message":"trying to show products","level":"debug","timestamp":"2018-10-29T19:26:43.295Z"}

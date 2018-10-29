@@ -5,7 +5,8 @@ import UserProductService from 'Services/UserProduct.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  providers : [UserProductService,CrudProductService]
 })
 export class ProductsComponent implements OnInit {
   products : any;
@@ -19,7 +20,7 @@ export class ProductsComponent implements OnInit {
     this.userProduct.AddToCart(productDetails)
       .then((Data)=>{
         if(Data.isProductAdded){
-          alert('added to product successfully');
+          alert('added to Cart successfully');
         }
         else{
           alert('Some Error While Adding');

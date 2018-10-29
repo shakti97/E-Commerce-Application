@@ -1,11 +1,9 @@
 <div class="form-group">  
   <fieldset>
       <legend>Cart List</legend>
-          <table class="table table-bordered">
+          <table class="table table-striped">
               <thead>
                   <tr>
-                      <td>CategoryName</td>
-                      <td>BrandName</td>
                       <td>ProductName</td>
                       <td>Quantity</td>
                       <td>ProductPrice</td>
@@ -14,15 +12,14 @@
                   </tr>
               </thead>
               <tbody id="itemtable">
-                  <tr *ngFor='let product of cartproducts'>
-                      <td>{{product.CategoryName}}</td>
-                      <td>{{product.BrandName}}</td>
+                  <tr *ngFor='let product of cartProducts'>
+                      
                       <td>{{product.ProductName}}</td>
-                      <td>{{Quantity}}</td>
+                      <td>{{product.ProductQuantity}}</td>
                       <td>{{product.ProductPrice}}</td>
                       <td><button class="btn btn-danger" (click)='DeleteCartProduct(product.ProductID)'>Delete</button></td>
-                      <td><button class="btn btn-primary" (click)='UpdateQuantity(product.ProductID,+1)'> +1 </button>
-                      <button class="btn btn-secondary" (click)='UpdateQuantity(product.ProductID,-1)'> -1 </button></td>
+                      <td><button class="btn btn-primary" (click)='UpdateCartProduct(product.ProductID,+1)'> +1 </button>
+                      <button class="btn btn-secondary" (click)='UpdateCartProduct(product.ProductID,-1)'> -1 </button></td>
                     </tr>
               </tbody>
           </table>

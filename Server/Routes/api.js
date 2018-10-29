@@ -122,7 +122,12 @@ router.get('/GetProductSeller/:sId',(req,res)=>{
   console.log('sid',sId);
   UserOperations.GetProductSeller(res,sId);
 })
-
+router.get('/GetSellerProduct/:sId',(req,res)=>{
+  console.log('inding product according to the seller');
+  sId=req.params.sId;
+  console.log('sid',sId);
+  UserOperations.GetSellerProduct(res,sId);
+})
 router.post('/addToCart',(req,res)=>{
   console.log('adding the product to the cart');
   pId=req.body.productId;
@@ -143,13 +148,18 @@ router.delete('/deleteCartProduct/:sId/:pId',(req,res)=>{
   console.log('sId ',sId + "pId ",pId );
   UserOperations.deleteCartProduct(sId,pId,res);
 });
-router.get('/updateCartProduct/:pId',(req,res)=>{
-  console.log('showing the product  in the cart');
+router.put('/updateCartProduct/:pId',(req,res)=>{
+  console.log('updating the product  in the cart');
   pId=req.params.pId;
   sId=req.body.userId;
   todo=req.body.todo;
   console.log('pId ',pId+' userId ',sId );
   UserOperations.updateCartProduct(pId,sId,todo,res);
+})
+
+router.get('/ProductCount',(req,res)=>{
+  console.log('Product Count Routing');
+  UserOperations.ProductCount(res);
 })
 
 
