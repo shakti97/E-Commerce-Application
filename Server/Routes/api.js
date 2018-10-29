@@ -167,7 +167,7 @@ router.put('/updateCartProduct/:pId',(req,res)=>{
 router.get('/ProductCount',(req,res)=>{
   console.log('Product Count Routing');
   UserOperations.ProductCount(res);
-})
+});
 
 
 module.exports = router;

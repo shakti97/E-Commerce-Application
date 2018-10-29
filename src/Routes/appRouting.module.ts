@@ -14,6 +14,7 @@ import { AuthGuardService } from 'app/guards/authguard.service';
 import { AdminDashboardComponent } from 'app/admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
 import { MainPageComponent } from 'app/user/website/main-page/main-page.component';
 import { CartComponent } from 'app/user/website/cart/cart.component';
+import { UserProfileComponent } from 'app/user/user/user-profile/user-profile.component';
 
 const routes: Routes = [
     {
@@ -32,6 +33,10 @@ const routes: Routes = [
   
       },
       {
+          path:'website/profile', component: UserProfileComponent
+      },
+  
+      {
         path: 'admin/dashboard/sellers', component: ShowSellerComponent,
         canActivate: [AuthGuardService]
       },
@@ -41,7 +46,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService]
       },
       {
-          path : "cart",
+          path : "website/cart",
           component : CartComponent
       },
     {

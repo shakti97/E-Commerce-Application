@@ -23,7 +23,6 @@ currentRoute: any;
     this.content;
     console.log('admin login cons...');
     this.currentRoute=this._location.path();
-
     
   }
 
@@ -92,11 +91,16 @@ if(content.status==200 && content.data.role=="admin"){
 else if(content.status==200 && content.data.role=="customer"){
   console.log('insie if...');
   localStorage.setItem('sessionID',content.sessionID);
-  localStorage.setItem('customerId', content.data.email);
+  localStorage.setItem('customerId', content.data._id);
   globalVariables.isAuthenticated=true;
   this.router.navigate(['/website']);
   this.content=content;
   profileData.data=this.content.data;
+  localStorage.setItem('email',this.content.data.email);
+  localStorage.setItem('gender',this.content.data.gender);
+  localStorage.setItem('username',this.content.data.username);
+  localStorage.setItem('status',this.content.data.status);
+
   console.log('profile', profileData);
 }
 

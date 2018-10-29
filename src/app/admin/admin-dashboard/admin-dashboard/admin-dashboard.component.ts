@@ -107,7 +107,7 @@ console.log('content in logout',content);
     if(content.status==200){
 
       globalVariables.isAuthenticated=false;
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/']);
       console.log('logged out by the front end function');
 
     }
@@ -120,7 +120,7 @@ console.log('content in logout',content);
     }).catch(err=>console.log('error in the http promise of loggind out user..'));
 
     globalVariables.isAuthenticated=false;
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/']);
 
   }
 
