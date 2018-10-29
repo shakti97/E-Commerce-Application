@@ -17,7 +17,7 @@ import { CartComponent } from 'app/user/website/cart/cart.component';
 
 const routes: Routes = [
     {
-        path: '',component: MainPageComponent
+        path: '',component: AdminLoginComponent
     },
     {
         path : 'Seller', redirectTo : 'LoginPage', pathMatch : 'full', 
@@ -28,7 +28,7 @@ const routes: Routes = [
     },
     {
 
-        path: 'admin', component: AdminLoginComponent
+        path: 'website', component: MainPageComponent
   
       },
       {

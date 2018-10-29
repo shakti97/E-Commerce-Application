@@ -16,8 +16,6 @@ export class AuthGuardService implements CanActivate{
     constructor(private http: HttpClient, private router: Router){
 
         console.log('inside the guard cons...');
-     
-         
     }
 
     findTheSession(){
@@ -60,7 +58,7 @@ if(globalVariables.isAuthenticated){
 }
 else{
 
-    this.router.navigate(['/'], { queryParams: { returnUrl: state.url },preserveQueryParams: false});
+    this.router.navigate(['/'], { queryParams: { returnUrl: state.url }});
     console.log('currenr url in guard',state.url);
     return false;
 }

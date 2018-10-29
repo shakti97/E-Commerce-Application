@@ -8,7 +8,7 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 @Component({
   selector: 'app-show-seller',
   templateUrl: './show-seller.component.html',
-  styleUrls: []
+  styleUrls: ['../../../assets/materialize.min.css']
 })
 export class ShowSellerComponent implements OnInit {
 
