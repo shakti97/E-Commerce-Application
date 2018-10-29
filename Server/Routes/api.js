@@ -150,7 +150,14 @@ router.get('/updateCartProduct/:pId',(req,res)=>{
   todo=req.body.todo;
   console.log('pId ',pId+' userId ',sId );
   UserOperations.updateCartProduct(pId,sId,todo,res);
-})
+});
+
+// router.get('/getOnlineUsers',sessionChecker, (request,response)=>{
+
+//   console.log('inside the online users api...');
+//   UserOperations.getOnlineUsers(request,response);
+
+// });
 
 
 module.exports = router;

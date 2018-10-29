@@ -51,6 +51,7 @@ sub:any;
       this.email=params['email'];
       console.log('received email here...', this.email);
     });
+
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
@@ -74,6 +75,18 @@ sub:any;
     });
       
     chart.render();
+
+  //   this.http.get('http://localhost:1234/getOnlineUsers', {
+  //    params: {
+  //     sessionId: localStorage.getItem('sessionID')
+  //    },
+  //    withCredentials: true
+  // }).toPromise().then(data=>{
+    
+  //   let content:any=data;
+  //   console.log('data from the api',content);
+  
+  // })
    
   }
 

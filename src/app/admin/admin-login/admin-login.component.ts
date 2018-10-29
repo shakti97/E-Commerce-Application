@@ -89,13 +89,15 @@ if(content.status==200 && content.data.role=="admin"){
 
 }
 
-else if(content.status==200 && content.role=="user"){
+else if(content.status==200 && content.data.role=="customer"){
   console.log('insie if...');
   localStorage.setItem('sessionID',content.sessionID);
+  localStorage.setItem('customerId', content.data.email);
   globalVariables.isAuthenticated=true;
-  this.router.navigate(['admin/profile']);
+  this.router.navigate(['/website']);
   this.content=content;
   profileData.data=this.content.data;
+  console.log('profile', profileData);
 }
 
 //another elseif to be there for seller and inside it add this.content=content statement and use ProfileService !

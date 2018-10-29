@@ -181,6 +181,7 @@ admin.save(err=>{
             });
 
                 console.log('session created');
+                console.log('rights again...',RightContent);
                 console.log('request.session ', request.session);
                 response.json({
 

@@ -11,9 +11,40 @@ const brandSchema = brandSchemaFile.brandModel;
 const validateBrand = brandSchemaFile.validateBrand;
 const passwordHash = require('password-hash');
 const logger = require('../../Logs/logConfig.js');
-
+// var store=require('../middlewares/SessionHandling/sessionstore');
 
 const UserOperations = {
+
+  //getting online users  here
+  // getOnlineUsers(request,response){
+
+  //   console.log('inside the get online users function...');
+  //   store.all(function(err,sessions){
+  //     if(err){
+  //       console.log('error getting sessions from store');
+  //       response.json({
+  //         error: err,
+  //         responseText:'error getting sessions from store'
+  //       });
+  //     }
+
+  //     else if(sessions){
+  //       console.log('sessions received  from store', sessions);
+  //       response.json({
+  //         sessions: sessions
+  //       });
+  //     }
+
+  //     else{
+  //       console.log('some other error occured while getting sessions...');
+  //       response.json({
+  //         responseText: 'some other error occured while getting sessions...'
+  //       });
+  //     }
+  //   });
+
+  // },
+
   addUser(userObject) {
     userObject.password = passwordHash.generate(userObject.password);
     userSchema.create(userObject, (err,userDoc) => {
