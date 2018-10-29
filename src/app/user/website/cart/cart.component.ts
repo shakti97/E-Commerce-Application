@@ -4,7 +4,8 @@ import UserProductService from 'Services/UserProduct.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  providers : [UserProductService]
 })
 export class CartComponent implements OnInit {
   cartProducts :any;
@@ -16,6 +17,7 @@ export class CartComponent implements OnInit {
    }
   DeleteCartProduct(pId){
     console.log('function delete product trigger');
+    console.log('PID ',pId);
         this.userProduct.DeleteCartProduct(pId)
             .then((Data)=>{
                 if(Data.isProductDeleted){
@@ -28,12 +30,12 @@ export class CartComponent implements OnInit {
             })
   } 
   UpdateCartProduct(pId,todo){
-    this.Quantity=this.Quantity+todo;
-    let UpdateProduct=this.userProduct.UpdateCartProduct(pId,todo);
+    let UpdateProduct=this.userProduct.UpdateCartProduct({pId :pId},todo);
     UpdateProduct.then((Data)=>{
       console.log('Successfully Udated',Data);
       if(Data){
         console.log('Deta updated');
+        this.ngOnInit();
       }
     })
     if(this.Quantity===0){
@@ -45,6 +47,7 @@ export class CartComponent implements OnInit {
             showProducts.then((Data)=>{
                 console.log("Data",Data);
                 this.cartProducts=Data.products;
+                console.log('this.cardProducts ',this.cartProducts);
             })
   }
 

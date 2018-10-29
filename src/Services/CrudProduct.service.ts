@@ -20,7 +20,7 @@ export default class{
     }
     ShowProduct(){
         console.log('show PRoducts function is running');
-        let Url='http://localhost:1234/GetProductSeller/'+ localStorage.getItem("userId");
+        let Url='http://localhost:1234/GetSellerProduct/'+ localStorage.getItem("userId");
         return this._http.get(Url,this.option).toPromise()
             .then(data=>{console.log('Products data.json()',data.json()); return data.json()})
             .catch(error=>{return error});
