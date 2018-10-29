@@ -1,4 +1,4 @@
-const mongoose=require('../../../../eshopp/backend/db/common/connection');
+const mongoose=require('../common/connection');
 
 const schema=mongoose.Schema;
 var rightSchema= new schema({
