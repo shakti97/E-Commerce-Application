@@ -911,14 +911,10 @@ const UserOperations = {
       console.log('todo to change in the add to cart qunatity ', todo);
       this.UpdateProduct(productId, todo, res);
 
-      userSchema.findByIdAndUpdate(userId, {
+      userSchema.update({"_id": userId,"cart.ProductId" : productId}, {
         $inc: {
-          "cart.$[elem].Quantity": 1
+          "cart.$.Quantity": 1
         }
-      }, {
-        "arrayFilters": [{
-          "elem.ProductId": productId
-        }]
       }, (error) => {
         if (error) {
           console.log('error', error);
@@ -934,14 +930,10 @@ const UserOperations = {
     } else {
       this.UpdateProduct(productId, todo, res);
 
-      userSchema.findByIdAndUpdate(userId, {
+      userSchema.update({"_id": userId,"cart.ProductId" : productId}, {
         $inc: {
-          "cart.$[elem].Quantity": -1
+          "cart.$.Quantity": 1
         }
-      }, {
-        "arrayFilters": [{
-          "elem.ProductId": productId
-        }]
       }, (error) => {
         if (error) {
           console.log('error', error);

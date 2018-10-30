@@ -41,7 +41,7 @@ const routes: Routes = [
         canActivate: [AuthGuardService]
       },
       {
-          path : "cart",
+          path : "website/cart",
           component : CartComponent
       },
     {
