@@ -132,5 +132,9 @@ console.log('content in logout',content);
   ngOnDestroy(){
     this.sub.unsubscribe();
   }
+
+  viewStock(){
+    this.router.navigate(['admin/mystock']);
+  }
   
 }

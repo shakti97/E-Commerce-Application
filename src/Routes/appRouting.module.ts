@@ -15,6 +15,7 @@ import { AdminDashboardComponent } from 'app/admin/admin-dashboard/admin-dashboa
 import { MainPageComponent } from 'app/user/website/main-page/main-page.component';
 import { CartComponent } from 'app/user/website/cart/cart.component';
 import { UserProfileComponent } from 'app/user/user/user-profile/user-profile.component';
+import { ViewProductsComponent } from 'app/admin/admin-dashboard/show-products/show-products.component';
 
 const routes: Routes = [
     {
@@ -44,7 +45,12 @@ const routes: Routes = [
 
         path: 'admin/dashboard/:email', component: AdminDashboardComponent,
         canActivate: [AuthGuardService]
+       
       },
+      {
+        path: 'admin/mystock', component: ViewProductsComponent,
+        canActivate: [AuthGuardService]
+    },
       {
           path : "website/cart",
           component : CartComponent

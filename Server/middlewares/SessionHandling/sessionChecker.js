@@ -37,8 +37,6 @@ let sessionChecker= ( request , response , next )=> {
 
     
     }
-
-
 };
 
 module.exports=sessionChecker;

@@ -119,28 +119,5 @@ else{
     
   }
 
-  registerUser(){
-
-    
-  }
-
-  // makeSession(){
-
-  //   this.http.get('http://localhost:1234/makeSession',{withCredentials: true}).toPromise().then(response=>{
-
-  //   console.log("response",response);
-  //   }).catch(error=>console.log('error in makeSession Promise',error));
-  // }
-
-  // checkSession(){
-    
-  //   this.http.get('http://localhost:1234/verifySession',{withCredentials: true}).toPromise().then(response=>{
-
-  //   console.log("response",response);
-  //   }).catch(error=>console.log('error in verifySession Promise',error));
-
-
-  // }
-
 
 }
