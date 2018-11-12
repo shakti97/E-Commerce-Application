@@ -1,4 +1,4 @@
-// import { ShowProductsComponent } from './../seller/ShowProducts/showProducts.component';
+import { ShowProductsComponent } from './../seller/ShowProducts/showProducts.component';
 import { SellerModule } from './../seller/seller.module';
 import { ProfileComponent } from './reusable-components/profile/profile.component';
 import { AuthGuardService } from './../guards/authguard.service';
@@ -19,7 +19,7 @@ import { ViewProductsComponent } from './admin-dashboard/show-products/show-prod
     CommonModule,FormsModule,HttpClientModule,RouterModule,SellerModule
    
   ],
-  declarations: [AdminLoginComponent, AdminDashboardComponent,ProfileComponent, ShowSellerComponent, AdminPalletsComponent, ViewProductsComponent],
+  declarations: [AdminLoginComponent, AdminDashboardComponent,ProfileComponent,ShowSellerComponent, AdminPalletsComponent, ViewProductsComponent],
   exports: [ AdminLoginComponent ],
   providers: [AuthGuardService,ProductsService]
 })

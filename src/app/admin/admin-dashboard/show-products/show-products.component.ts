@@ -23,7 +23,7 @@ products: any;
       let content:any=data;
       
       console.log('the stock obtained is...', content);
-      this.products=content;
+      this.products=content.products;
       
       }
 
