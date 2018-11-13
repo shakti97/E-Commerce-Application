@@ -90,7 +90,7 @@ router.post('/addProduct',(req,res)=>{
   UserOperations.AddProducts(prDetails,req,res);
 });
 
-router.get('/showProducts',(req,res)=>{
+router.get('/showProducts',(req,res)=>{  //session checker is to be added here
   logger.debug('trying to show products');
   console.log('Trying to show Products');
   console.log("reqbody",req.headers);
@@ -155,12 +155,19 @@ router.put('/updateCartProduct/:pId',(req,res)=>{
   todo=req.body.todo;
   console.log('pId ',pId+' userId ',sId );
   UserOperations.updateCartProduct(pId,sId,todo,res);
-})
+});
+
+// router.get('/getOnlineUsers',sessionChecker, (request,response)=>{
+
+//   console.log('inside the online users api...');
+//   UserOperations.getOnlineUsers(request,response);
+
+// });
 
 router.get('/ProductCount',(req,res)=>{
   console.log('Product Count Routing');
   UserOperations.ProductCount(res);
-})
+});
 
 
 module.exports = router;

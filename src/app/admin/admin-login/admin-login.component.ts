@@ -23,7 +23,6 @@ currentRoute: any;
     this.content;
     console.log('admin login cons...');
     this.currentRoute=this._location.path();
-
     
   }
 
@@ -89,13 +88,20 @@ if(content.status==200 && content.data.role=="admin"){
 
 }
 
-else if(content.status==200 && content.role=="user"){
+else if(content.status==200 && content.data.role=="customer"){
   console.log('insie if...');
   localStorage.setItem('sessionID',content.sessionID);
+  localStorage.setItem('customerId', content.data._id);
   globalVariables.isAuthenticated=true;
-  this.router.navigate(['admin/profile']);
+  this.router.navigate(['/website']);
   this.content=content;
   profileData.data=this.content.data;
+  localStorage.setItem('email',this.content.data.email);
+  localStorage.setItem('gender',this.content.data.gender);
+  localStorage.setItem('username',this.content.data.username);
+  localStorage.setItem('status',this.content.data.status);
+
+  console.log('profile', profileData);
 }
 
 //another elseif to be there for seller and inside it add this.content=content statement and use ProfileService !
@@ -112,29 +118,6 @@ else{
 }
     
   }
-
-  registerUser(){
-
-    
-  }
-
-  // makeSession(){
-
-  //   this.http.get('http://localhost:1234/makeSession',{withCredentials: true}).toPromise().then(response=>{
-
-  //   console.log("response",response);
-  //   }).catch(error=>console.log('error in makeSession Promise',error));
-  // }
-
-  // checkSession(){
-    
-  //   this.http.get('http://localhost:1234/verifySession',{withCredentials: true}).toPromise().then(response=>{
-
-  //   console.log("response",response);
-  //   }).catch(error=>console.log('error in verifySession Promise',error));
-
-
-  // }
 
 
 }

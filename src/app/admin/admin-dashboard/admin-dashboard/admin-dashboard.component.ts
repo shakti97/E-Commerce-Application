@@ -51,6 +51,7 @@ sub:any;
       this.email=params['email'];
       console.log('received email here...', this.email);
     });
+
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
@@ -74,6 +75,18 @@ sub:any;
     });
       
     chart.render();
+
+  //   this.http.get('http://localhost:1234/getOnlineUsers', {
+  //    params: {
+  //     sessionId: localStorage.getItem('sessionID')
+  //    },
+  //    withCredentials: true
+  // }).toPromise().then(data=>{
+    
+  //   let content:any=data;
+  //   console.log('data from the api',content);
+  
+  // })
    
   }
 
@@ -94,7 +107,7 @@ console.log('content in logout',content);
     if(content.status==200){
 
       globalVariables.isAuthenticated=false;
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/']);
       console.log('logged out by the front end function');
 
     }
@@ -107,7 +120,7 @@ console.log('content in logout',content);
     }).catch(err=>console.log('error in the http promise of loggind out user..'));
 
     globalVariables.isAuthenticated=false;
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/']);
 
   }
 
@@ -118,6 +131,10 @@ console.log('content in logout',content);
 
   ngOnDestroy(){
     this.sub.unsubscribe();
+  }
+
+  viewStock(){
+    this.router.navigate(['admin/mystock']);
   }
   
 }

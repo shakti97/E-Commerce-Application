@@ -1,3 +1,4 @@
+import { UserProfileComponent } from 'app/user/user/user-profile/user-profile.component';
 // import { DashBoardRoutingModule } from './../Routes/DashBoardRouting.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +26,7 @@ import { CartComponent } from './user/website/cart/cart.component';
     CarouselComponent,
     ProductsComponent,
     MainPageComponent,
-    CartComponent
+    CartComponent,UserProfileComponent
   ],
   imports: [
     BrowserModule,
