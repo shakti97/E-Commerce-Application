@@ -15,24 +15,33 @@ products: any;
 
   ngOnInit() {
     this.http.get('http://localhost:1234/showProducts', {
-      // params: {
-      //  sessionId: localStorage.getItem('sessionID')
-      // },
-      withCredentials: true).toPromise().then(data=>{
+      params: {
+       sessionId: localStorage.getItem('sessionID')
+      },
+      withCredentials: true}).toPromise().then(data=>{
+        let content:any=data;
+
+         if(content.status==403){
+          console.log('sessions expired...');
+          localStorage.clear();
+          globalVariables.isAuthenticated=false;
+          this.router.navigate(['/']);
+        }
+
       if(globalVariables.isAuthenticated===true){
-      let content:any=data;
+      
       
       console.log('the stock obtained is...', content);
       this.products=content.products;
       
       }
-
-      else{
-
-        localStorage.clear();
-        this.router.navigate(['/']);
-      }
       
+    }).catch(()=>{
+
+      localStorage.clear();
+          globalVariables.isAuthenticated=false;
+          this.router.navigate(['/']);
+
     });
   }
 

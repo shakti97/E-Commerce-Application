@@ -90,7 +90,7 @@ router.post('/addProduct',(req,res)=>{
   UserOperations.AddProducts(prDetails,req,res);
 });
 
-router.get('/showProducts',(req,res)=>{  //session checker is to be added here
+router.get('/showProducts',sessionChecker,(req,res)=>{  //session checker is to be added here
   logger.debug('trying to show products');
   console.log('Trying to show Products');
   console.log("reqbody",req.headers);
