@@ -48,13 +48,10 @@ const routes: Routes = [
        
       },
       {
-<<<<<<< HEAD
-=======
         path: 'admin/mystock', component: ViewProductsComponent,
         canActivate: [AuthGuardService]
     },
       {
->>>>>>> dea5f2949ea551620c3af912f766ac22a6d78a92
           path : "website/cart",
           component : CartComponent
       },

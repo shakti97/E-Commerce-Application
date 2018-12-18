@@ -28,7 +28,7 @@ router.get('/logout', (request,response)=>{
       console.log('session sestoryed and is accessible ',request.session);
       response.json({
 
-          status: 200,
+          status: 200,  
           responseStatus: 'logged out'
           });
   });
