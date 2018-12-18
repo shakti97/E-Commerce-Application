@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
     }
     this.userProduct.AddToCart(productDetails)
       .then((Data)=>{
-        if(Data.isProductAdded){
+        if(Data.isProductAdded || Data){
           alert('added to Cart successfully');
         }
         else{

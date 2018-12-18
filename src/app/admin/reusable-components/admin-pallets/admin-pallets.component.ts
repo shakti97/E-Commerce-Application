@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'admin-pallet',
   templateUrl: './admin-pallets.component.html',
-  styleUrls: []
+  styleUrls: ['./admin-pallets.component.css']
 })
 export class AdminPalletsComponent implements OnInit {
 count: any;

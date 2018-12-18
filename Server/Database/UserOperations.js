@@ -810,7 +810,13 @@ const UserOperations = {
       } else {
         console.log('userDetails', userDetails);
         if (userDetails) {
-          console.log('found the user');
+          let size=userDetails.cart.length;
+          console.log('size ',size);
+          let initial=0;
+          let matched=false;
+          if(size==0){
+            console.log("New Product To add" );
+            console.log('found the user');
           this.UpdateProduct(productId, 1, res);
           var pObj = {
             ProductId: productId,
@@ -839,6 +845,54 @@ const UserOperations = {
               }
             }
           });
+          }
+          else{
+          userDetails.cart.forEach(product=>{
+            console.log('product ',product);
+            if(product.ProductId==productId){
+              matched=true;
+              console.log('Same Product Added');
+              this.updateCartProduct(productId,userId,1,res);
+            }
+            else if((initial==size-1 && matched==false)){
+                console.log("New Product To add" );
+                console.log('found the user');
+              this.UpdateProduct(productId, 1, res);
+              var pObj = {
+                ProductId: productId,
+                Quantity: 1
+              }
+              userSchema.update({
+                _id: userId
+              }, {
+                $push: {
+                  cart: pObj
+                }
+              }, (error, docum) => {
+                if (error) {
+                  console.log('Error', error);
+                  res.status(500).send({
+                    "ErrorMsg": error
+                  })
+                } else {
+                  console.log('UserData Document Returned', docum);
+                  if (docum) {
+                    console.log("docum", docum);
+                    console.log('productId pushed, have some value in cart previously');
+                    res.status(200).send({
+                      isProductAdded: true
+                    });
+                  }
+                }
+              });
+            }
+          
+            else{
+              initial+=1;
+              console.log('initial ++');
+            }
+          })
+        }
         } else {
           console.log('not found the user');
           res.status(500).send({
@@ -869,7 +923,8 @@ const UserOperations = {
           LengthOfIdArray = ProductIdArray.length;
           ProductIdArray.forEach(product => {
             console.log("product ", product)
-            qty = product.Quantity;
+            let qty = product.Quantity;
+            console.log('qunatity ',qty);
             productSchema.findById(product.ProductId).exec((error, products) => {
               if (error) {
                 console.log('error', error);
@@ -883,6 +938,7 @@ const UserOperations = {
                   ProductPrice: products.price,
                   ProductQuantity: qty
                 };
+                console.log("productDetails ",productDetail);
                 productArray.push(productDetail);
                 console.log("productArray ", productArray);
                 if (productArray.length === LengthOfIdArray) {
@@ -963,7 +1019,7 @@ const UserOperations = {
 
       userSchema.update({"_id": userId,"cart.ProductId" : productId}, {
         $inc: {
-          "cart.$.Quantity": 1
+          "cart.$.Quantity": -1
         }
       }, (error) => {
         if (error) {

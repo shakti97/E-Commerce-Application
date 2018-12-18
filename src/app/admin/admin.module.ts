@@ -1,4 +1,4 @@
-import { ShowProductsComponent } from './../seller/ShowProducts/showProducts.component';
+
 import { SellerModule } from './../seller/seller.module';
 import { ProfileComponent } from './reusable-components/profile/profile.component';
 import { AuthGuardService } from './../guards/authguard.service';

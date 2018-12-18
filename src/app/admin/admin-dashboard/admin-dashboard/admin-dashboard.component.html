@@ -24,13 +24,13 @@
               <a class="nav-link" (click)="viewStock()">Stock</a>
             </li>
            
-         
           </ul>
 
         </div>
       </nav>
-      <div class="row pl-4">
+      <div>
         <admin-pallet></admin-pallet>
+        <!-- <admin-pallet></admin-pallet> -->
         
       </div>
       
@@ -38,17 +38,13 @@
  Product added Successfully !
 </div>
 
-<div id="chartContainer" style="height: 370px; width: 50%;" class="pb-3"></div>
+<div id="chartContainer" style="height: 370px; width: 50%; transform: translateY(50px)" class="pb-3 mb-3"></div>
 
 
-<div class="w-75 align-self-center background">
-  <div>
-      <button class="waves-effect waves-light btn mr-2"  (click)="logOut()">
+<div class="w-75 align-self-cente mt-5" style="transform: translateY(50px)">
+  
+      <button class="btn btn-primary"  (click)="logOut()">
         LOGOUT</button>
-  </div>
-
-
-</div>
 <br><br>
 <router-outlet>
   
